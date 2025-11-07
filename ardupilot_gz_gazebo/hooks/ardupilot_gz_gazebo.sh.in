@@ -1,2 +1,9 @@
+# Add the project's models directory to GZ_SIM_RESOURCE_PATH
+if [ -z "$GZ_SIM_RESOURCE_PATH" ]; then
+  export GZ_SIM_RESOURCE_PATH="@CMAKE_INSTALL_PREFIX@/share/@PROJECT_NAME@/models"
+else
+  export GZ_SIM_RESOURCE_PATH="@CMAKE_INSTALL_PREFIX@/share/@PROJECT_NAME@/models:$GZ_SIM_RESOURCE_PATH"
+fi
+
 ament_prepend_unique_value GZ_SIM_RESOURCE_PATH "$AMENT_CURRENT_PREFIX/share/@PROJECT_NAME@/worlds"
 ament_prepend_unique_value GZ_SIM_PLUGIn_PATH "$AMENT_CURRENT_PREFIX/lib/@PROJECT_NAME@"
