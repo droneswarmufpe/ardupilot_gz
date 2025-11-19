@@ -1,0 +1,68 @@
+services:
+  dev:
+    image: robocin/cpp-ros-humble-desktop
+    container_name: rcpilot-dev
+    network_mode: host
+    volumes:
+      - .:/workspace
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+    environment:
+      - DISPLAY=${DISPLAY}
+      - QT_X11_NO_MITSHM=1
+    stdin_open: true
+    tty: true
+    working_dir: /workspace
+    command: /bin/bash -c "
+      echo 'source /opt/ros/humble/setup.bash' >> ~/.bashrc &&
+      tail -f /dev/null"
+  sim:
+    image: ardupilot-sitl-gazebo
+    container_name: rcpilot-sim
+    network_mode: host
+    volumes:
+      - .:/workspace
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - QT_X11_NO_MITSHM=1
+      - ${XAUTHORITY:-/tmp/.docker.xauth}:/tmp/.docker.xauth
+    environment:
+      - DISPLAY=${DISPLAY}
+      - QT_X11_NO_MITSHM=1
+      - XAUTHORITY=/tmp/.docker.xauth
+    stdin_open: true
+    tty: true
+    working_dir: /workspace/launch
+    command: >
+      /bin/bash -c "
+      echo 'source /root/ardu_ws/install/setup.bash' >> ~/.bashrc &&
+      tail -f /dev/null
+      "
+  sim-gpu:
+    image: ardupilot-sitl-gazebo:gpu
+    container_name: rcpilot-sim
+    network_mode: host
+    volumes:
+      - .:/workspace
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      #- QT_X11_NO_MITSHM=1
+      - ${XAUTHORITY:-/tmp/.docker.xauth}:/tmp/.docker.xauth
+    environment:
+      - DISPLAY=${DISPLAY}
+      - QT_X11_NO_MITSHM=1
+      - XAUTHORITY=/tmp/.docker.xauth
+      - NVIDIA_VISIBLE_DEVICES=${NVIDIA_VISIBLE_DEVICES:-all}
+      - NVIDIA_DRIVER_CAPABILITIES=all
+    stdin_open: true
+    tty: true
+    working_dir: /workspace/launch
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    command: >
+      /bin/bash -c "
+      echo 'source /root/ardu_ws/install/setup.bash' >> ~/.bashrc &&
+      tail -f /dev/null
+      "
