@@ -2,7 +2,7 @@
   <world name='baylands'>
     <physics type='ode'>
       <max_step_size>0.0040000000000000001</max_step_size>
-      <real_time_factor>1</real_time_factor>
+      <real_time_facgz tor>1</real_time_factor>
       <real_time_update_rate>250</real_time_update_rate>
     </physics>
     <gravity>0 0 -9.8000000000000007</gravity>

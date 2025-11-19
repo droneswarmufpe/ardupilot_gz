@@ -177,141 +177,9 @@
         <visual name='visual'>
           <geometry>
             <mesh>
-              <uri>file:///home/jpmp/.gz/fuel/fuel.gazebosim.org/openrobotics/models/coast water/3/meshes/waterlow.dae</uri>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/coast water/3/files/meshes/waterlow.dae</uri>
             </mesh>
           </geometry>
-          <plugin name='gz::sim::systems::ShaderParam' filename='gz-sim-shader-param-system'>
-            <shader language='glsl'>
-              <vertex>file:///home/jpmp/.gz/fuel/fuel.gazebosim.org/openrobotics/models/coast water/3/materials/programs/GerstnerWaves_vs_330.glsl</vertex>
-              <fragment>file:///home/jpmp/.gz/fuel/fuel.gazebosim.org/openrobotics/models/coast water/3/materials/programs/GerstnerWaves_fs_330.glsl</fragment>
-            </shader>
-            <shader language='metal'>
-              <vertex>file:///home/jpmp/.gz/fuel/fuel.gazebosim.org/openrobotics/models/coast water/3/materials/programs/GerstnerWaves_vs.metal</vertex>
-              <fragment>file:///home/jpmp/.gz/fuel/fuel.gazebosim.org/openrobotics/models/coast water/3/materials/programs/GerstnerWaves_fs.metal</fragment>
-            </shader>
-            <param>
-              <shader>vertex</shader>
-              <name>Nwaves</name>
-              <type>int</type>
-              <value>0</value>
-            </param>
-            <param>
-              <shader>vertex</shader>
-              <name>rescale</name>
-              <type>float</type>
-              <value>0.125</value>
-            </param>
-            <param>
-              <shader>vertex</shader>
-              <name>bumpScale</name>
-              <type>float_array</type>
-              <value>75 75</value>
-            </param>
-            <param>
-              <shader>vertex</shader>
-              <name>bumpSpeed</name>
-              <type>float_array</type>
-              <value>0.01 0.0</value>
-            </param>
-            <param>
-              <shader>vertex</shader>
-              <name>amplitude</name>
-              <type>float_array</type>
-              <value>0.42 0.28 0.21</value>
-            </param>
-            <param>
-              <shader>vertex</shader>
-              <name>wavenumber</name>
-              <type>float_array</type>
-              <value>0.028 0.0896 0.0504</value>
-            </param>
-            <param>
-              <shader>vertex</shader>
-              <name>omega</name>
-              <type>float_array</type>
-              <value>0.5 1.7 1.0</value>
-            </param>
-            <param>
-              <shader>vertex</shader>
-              <name>dir0</name>
-              <type>float_array</type>
-              <value>-1.0 0.0</value>
-            </param>
-            <param>
-              <shader>vertex</shader>
-              <name>dir1</name>
-              <type>float_array</type>
-              <value>-0.7 0.7</value>
-            </param>
-            <param>
-              <shader>vertex</shader>
-              <name>dir2</name>
-              <type>float_array</type>
-              <value>0.7 0.7</value>
-            </param>
-            <param>
-              <shader>vertex</shader>
-              <name>steepness</name>
-              <type>float_array</type>
-              <value>1.0 1.5 0.8</value>
-            </param>
-            <param>
-              <shader>vertex</shader>
-              <name>tau</name>
-              <type>float</type>
-              <value>2.0</value>
-            </param>
-            <param>
-              <shader>vertex</shader>
-              <name>camera_position_object_space</name>
-            </param>
-            <param>
-              <shader>vertex</shader>
-              <name>worldviewproj_matrix</name>
-            </param>
-            <param>
-              <shader>vertex</shader>
-              <name>t</name>
-              <value>TIME</value>
-            </param>
-            <param>
-              <shader>fragment</shader>
-              <name>hdrMultiplier</name>
-              <type>float</type>
-              <value>0.4</value>
-            </param>
-            <param>
-              <shader>fragment</shader>
-              <name>fresnelPower</name>
-              <type>float</type>
-              <value>5.0</value>
-            </param>
-            <param>
-              <shader>fragment</shader>
-              <name>shallowColor</name>
-              <type>float_array</type>
-              <value>0.0 0.1 0.2 1.0</value>
-            </param>
-            <param>
-              <shader>fragment</shader>
-              <name>deepColor</name>
-              <type>float_array</type>
-              <value>0.0 0.05 0.02 1.0</value>
-            </param>
-            <param>
-              <shader>fragment</shader>
-              <name>cubeMap</name>
-              <type>texture_cube</type>
-              <value>file:///home/jpmp/.gz/fuel/fuel.gazebosim.org/openrobotics/models/coast water/3/materials/textures/skybox_lowres.dds</value>
-              <arg>1</arg>
-            </param>
-            <param>
-              <shader>fragment</shader>
-              <name>bumpMap</name>
-              <type>texture</type>
-              <value>file:///home/jpmp/.gz/fuel/fuel.gazebosim.org/openrobotics/models/coast water/3/materials/textures/wave_normals.dds</value>
-            </param>
-          </plugin>
         </visual>
         <pose>0 0 0 0 0 0</pose>
         <inertial>
@@ -1657,7 +1525,7 @@
           <geometry>
             <mesh>
               <scale>0.059999999999999998 0.059999999999999998 0.059999999999999998</scale>
-              <uri>file:///home/jpmp/.gz/fuel/fuel.gazebosim.org/openrobotics/models/suv/4/meshes/suv.obj</uri>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/suv/4/files/meshes/suv.obj</uri>
             </mesh>
           </geometry>
         </collision>
@@ -1666,7 +1534,7 @@
           <geometry>
             <mesh>
               <scale>0.059999999999999998 0.059999999999999998 0.059999999999999998</scale>
-              <uri>file:///home/jpmp/.gz/fuel/fuel.gazebosim.org/openrobotics/models/suv/4/meshes/suv.obj</uri>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/suv/4/files/meshes/suv.obj</uri>
             </mesh>
           </geometry>
         </visual>
@@ -3014,7 +2882,7 @@
           <geometry>
             <mesh>
               <scale>0.059999999999999998 0.059999999999999998 0.059999999999999998</scale>
-              <uri>file:///home/jpmp/.gz/fuel/fuel.gazebosim.org/openrobotics/models/suv/4/meshes/suv.obj</uri>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/suv/4/files/meshes/suv.obj</uri>
             </mesh>
           </geometry>
         </collision>
@@ -3023,7 +2891,7 @@
           <geometry>
             <mesh>
               <scale>0.059999999999999998 0.059999999999999998 0.059999999999999998</scale>
-              <uri>file:///home/jpmp/.gz/fuel/fuel.gazebosim.org/openrobotics/models/suv/4/meshes/suv.obj</uri>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/suv/4/files/meshes/suv.obj</uri>
             </mesh>
           </geometry>
         </visual>
@@ -3943,7 +3811,7 @@
         <visual name='base_visual'>
           <geometry>
             <mesh>
-              <uri>file:///home/jpmp/.gz/fuel/fuel.gazebosim.org/openrobotics/models/forklift/1/base_visual.glb</uri>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/forklift/1/files/base_visual.glb</uri>
             </mesh>
           </geometry>
         </visual>
@@ -4426,7 +4294,7 @@
         <visual name='base_visual'>
           <geometry>
             <mesh>
-              <uri>file:///home/jpmp/.gz/fuel/fuel.gazebosim.org/openrobotics/models/forklift/1/base_visual.glb</uri>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/forklift/1/files/base_visual.glb</uri>
             </mesh>
           </geometry>
         </visual>
@@ -4909,7 +4777,7 @@
         <visual name='base_visual'>
           <geometry>
             <mesh>
-              <uri>file:///home/jpmp/.gz/fuel/fuel.gazebosim.org/openrobotics/models/forklift/1/base_visual.glb</uri>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/forklift/1/files/base_visual.glb</uri>
             </mesh>
           </geometry>
         </visual>
