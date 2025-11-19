@@ -1,7 +1,7 @@
 services:
   dev:
     image: robocin/cpp-ros-humble-desktop
-    container_name: rcpilot-dev
+    container_name: pds-sim-dev
     network_mode: host
     volumes:
       - .:/workspace
@@ -17,7 +17,7 @@ services:
       tail -f /dev/null"
   sim:
     image: ardupilot-sitl-gazebo
-    container_name: rcpilot-sim
+    container_name: pds-sim
     network_mode: host
     volumes:
       - .:/workspace
@@ -38,7 +38,7 @@ services:
       "
   sim-gpu:
     image: ardupilot-sitl-gazebo:gpu
-    container_name: rcpilot-sim
+    container_name: pds-sim-gpu
     network_mode: host
     volumes:
       - .:/workspace
