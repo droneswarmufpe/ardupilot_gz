@@ -22,7 +22,7 @@ def generate_launch_description():
     pkg_ros_gz_sim = get_package_share_directory("ros_gz_sim")
 
     # Iris Depth.
-    iris_depth = IncludeLaunchDescription(
+    iris = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             [
                 PathJoinSubstitution(
@@ -36,8 +36,8 @@ def generate_launch_description():
             ]
         ),
         launch_arguments={
-            "model": "iris_depth",
-            "name": "iris_depth",
+            "model": "iris",
+            "name": "iris",
             "x": "0",
             "y": "0",
             "z": "0.3",
@@ -54,7 +54,7 @@ def generate_launch_description():
         ),
         launch_arguments={
             "gz_args": "-v4 -s -r "
-            + f'{Path(pkg_project_gazebo) / "worlds" / "runway.sdf"}'
+            + f'{Path(pkg_project_gazebo) / "worlds" / "baylands_parking-lot.sdf"}'
         }.items(),
     )
 
@@ -83,7 +83,7 @@ def generate_launch_description():
             ),
             gz_sim_server,
             gz_sim_gui,
-            iris_depth,
+            iris,
             rviz,
         ]
     )
