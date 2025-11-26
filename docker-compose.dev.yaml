@@ -46,6 +46,7 @@ services:
     ipc: host
     pid: host
     volumes:
+      - .:/root/ardu_ws/src/ardupilot_gz
       - .:/workspace
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
       #- QT_X11_NO_MITSHM=1
@@ -58,7 +59,7 @@ services:
       - NVIDIA_DRIVER_CAPABILITIES=all
     stdin_open: true
     tty: true
-    working_dir: /workspace/launch
+    working_dir: /root/ardu_ws/src/ardupilot_gz/launch
     deploy:
       resources:
         reservations:
@@ -68,6 +69,8 @@ services:
               capabilities: [gpu]
     command: >
       /bin/bash -c "
+      cd /root/ardu_ws &&
+      colcon build --packages-up-to ardupilot_gz_bringup &&
       echo 'source /root/ardu_ws/install/setup.bash' >> ~/.bashrc &&
       tail -f /dev/null
       "
