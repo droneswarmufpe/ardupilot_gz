@@ -56,9 +56,6 @@ services:
       - XAUTHORITY=/tmp/.docker.xauth
       - NVIDIA_VISIBLE_DEVICES=${NVIDIA_VISIBLE_DEVICES:-all}
       - NVIDIA_DRIVER_CAPABILITIES=all
-    ports:
-      - "14550-14570:14550-14570/udp"
-      - "5760-5770:5760-5770/tcp"
     stdin_open: true
     tty: true
     working_dir: /workspace/launch
