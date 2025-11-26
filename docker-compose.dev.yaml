@@ -42,7 +42,9 @@ services:
   sim-gpu:
     image: ardupilot-sitl-gazebo:gpu
     container_name: pds-sim-gpu
-    #network_mode: host
+    network_mode: host
+    ipc: host
+    pid: host
     volumes:
       - .:/workspace
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
