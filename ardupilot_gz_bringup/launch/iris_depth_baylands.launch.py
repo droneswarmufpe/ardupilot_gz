@@ -38,8 +38,8 @@ def generate_launch_description():
         launch_arguments={
             "model": "iris_depth",
             "name": "iris_depth",
-            "x": "0",
-            "y": "0",
+            "x": "-52",
+            "y": "84",
             "z": "0.3",
             "R": "0.0",
             "P": "0.0",
