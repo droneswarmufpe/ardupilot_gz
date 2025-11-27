@@ -47,6 +47,10 @@ services:
     pid: host
     volumes:
       - .:/root/ardu_ws/src/ardupilot_gz
+      - ../Sistemas:/root/Sistemas
+      - ../Chorus:/root/Chorus
+      - ../MAVKit:/root/MAVKit
+      - ../RoboChart2Python-PDS:/root/RoboChart2Python-PDS
       - .:/workspace
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
       #- QT_X11_NO_MITSHM=1
