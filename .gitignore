@@ -1,0 +1,7 @@
+*.bin
+*.BIN
+*.parm
+*log
+*.DAT
+*.raw
+LASTLOG.TXT
