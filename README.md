@@ -63,6 +63,7 @@ If you make any changes to the repo, ROS2 needs to be built again.
 Do this by running:
 ```
 cd /root/ardu_ws/ &&
-colcon build --packages-up-to ardupilot_gz_bringup
+colcon build --packages-up-to ardupilot_gz_bringup &&
+source /root/ardu_ws/install/setup.bash
 ```
 

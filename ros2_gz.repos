@@ -7,10 +7,6 @@ repositories:
     type: git
     url: https://github.com/ArduPilot/ardupilot_gazebo.git
     version: ros2
-  ardupilot_gz:
-    type: git
-    url: https://github.com/droneswarmufpe/ardupilot_gz.git
-    version: iris-depth-cbr
   ardupilot_sitl_models:
     type: git
     url: https://github.com/ArduPilot/SITL_Models.git
