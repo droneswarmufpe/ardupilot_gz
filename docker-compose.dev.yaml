@@ -1,44 +1,29 @@
 services:
-  dev:
-    image: robocin/cpp-ros-humble-desktop
-    container_name: pds-sim-dev
-    network_mode: host
-    volumes:
-      - .:/workspace
-      - /tmp/.X11-unix:/tmp/.X11-unix:rw
-    environment:
-      - DISPLAY=${DISPLAY}
-      - QT_X11_NO_MITSHM=1
-    stdin_open: true
-    tty: true
-    working_dir: /workspace
-    command: /bin/bash -c "
-      echo 'source /opt/ros/humble/setup.bash' >> ~/.bashrc &&
-      tail -f /dev/null"
   sim:
-    image: ardupilot-sitl-gazebo
+    image: test
     container_name: pds-sim
-    #network_mode: host
+    network_mode: host
+    ipc: host
+    pid: host
     volumes:
-      - .:/workspace
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
-      - QT_X11_NO_MITSHM=1
       - ${XAUTHORITY:-/tmp/.docker.xauth}:/tmp/.docker.xauth
+      - .:/root/ardu_ws/src/ardupilot_gz
     environment:
       - DISPLAY=${DISPLAY}
       - QT_X11_NO_MITSHM=1
       - XAUTHORITY=/tmp/.docker.xauth
-    ports:
-      - "14550-14570:14550-14570/udp"
-      - "5760-5770:5760-5770/tcp"
     stdin_open: true
     tty: true
-    working_dir: /workspace/launch
+    working_dir: /root/ardu_ws/src/ardupilot_gz/launch
     command: >
       /bin/bash -c "
+      cd /root/ardu_ws &&
+      colcon build --packages-up-to ardupilot_gz_bringup &&
       echo 'source /root/ardu_ws/install/setup.bash' >> ~/.bashrc &&
       tail -f /dev/null
       "
+
   sim-gpu:
     image: ardupilot-sitl-gazebo:gpu
     container_name: pds-sim-gpu
@@ -46,15 +31,13 @@ services:
     ipc: host
     pid: host
     volumes:
-      - .:/root/ardu_ws/src/ardupilot_gz
       - ../Sistemas:/root/Sistemas
       - ../Chorus:/root/Chorus
       - ../MAVKit:/root/MAVKit
       - ../RoboChart2Python-PDS:/root/RoboChart2Python-PDS
-      - .:/workspace
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
-      #- QT_X11_NO_MITSHM=1
       - ${XAUTHORITY:-/tmp/.docker.xauth}:/tmp/.docker.xauth
+      - .:/root/ardu_ws/src/ardupilot_gz
     environment:
       - DISPLAY=${DISPLAY}
       - QT_X11_NO_MITSHM=1
